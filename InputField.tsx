@@ -10,42 +10,50 @@ import {
 } from 'react-native';
 
 /**
- * Props for the InputField component.
+ * Props for the InputField component
  */
 type InputFieldProps = {
   /**
-   * Optional label to display above the input.
+   * Optional label text displayed above the input
    */
   label?: string;
 
   /**
-   * Custom style for the container view.
+   * Custom style for the container View
    */
   containerStyle?: ViewStyle;
 
   /**
-   * Custom style for the label text.
+   * Custom style for the label Text
    */
   labelStyle?: TextStyle;
 
   /**
-   * Custom style for the input field.
+   * Custom style for the TextInput field
    */
   inputStyle?: TextStyle;
 } & TextInputProps;
 
 /**
- * A customizable and reusable text input component with an optional label.
+ * A customizable and reusable input field with label support for React Native.
  *
- * Example usage:
- * ```tsx
+ * @param {string} label - Optional label shown above the input
+ * @param {string} placeholder - Placeholder text for the input field
+ * @param {string} value - Current value of the input
+ * @param {function} onChangeText - Function to handle text change
+ * @param {string} keyboardType - Keyboard type (default, numeric, etc.)
+ * @param {object} containerStyle - Custom style for the wrapper View
+ * @param {object} labelStyle - Custom style for the label Text
+ * @param {object} inputStyle - Custom style for the TextInput
+ *
+ * @example
  * <InputField
- *   label="Name"
- *   placeholder="Enter your name"
- *   value={name}
- *   onChangeText={setName}
+ *   label="Email"
+ *   placeholder="Enter your email"
+ *   value={email}
+ *   onChangeText={setEmail}
+ *   keyboardType="email-address"
  * />
- * ```
  */
 const InputField: React.FC<InputFieldProps> = ({
   label = '',
@@ -77,6 +85,9 @@ const InputField: React.FC<InputFieldProps> = ({
 
 export default InputField;
 
+/**
+ * Default styling for the InputField component.
+ */
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 8,
